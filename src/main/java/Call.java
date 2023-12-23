@@ -3,6 +3,12 @@ public class Call {
         if (floor < 1) {
             throw new ElevatorCallException("Некорректно введён этаж");
         }
+        if (((floor % 2) == 0) && ((type == ElevatorType.ODD))) {
+            throw new ElevatorCallException("Некорректно введён тип лифта");
+        }
+        if (((floor % 2) != 0) && ((type == ElevatorType.EVEN))) {
+            throw new ElevatorCallException("Некорректно введён тип лифта");
+        }
         this.floor = floor;
         this.type = type;
     }
